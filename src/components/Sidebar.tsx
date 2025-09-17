@@ -29,6 +29,10 @@ export const Sidebar: React.FC = () => {
         <Link href="/users" className="hover:underline">
           Users
         </Link>
+        <Link href="/profile" className="hover:underline">
+          Profile
+        </Link>
+      
       </nav>
     </motion.aside>
   );

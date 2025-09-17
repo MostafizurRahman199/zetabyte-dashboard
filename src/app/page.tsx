@@ -1,4 +1,4 @@
-import { AnimatedCard } from "@/components/AnimatedCard";
+import { AnimatedCard } from "../components/AnimatedCard";
 
 
 
