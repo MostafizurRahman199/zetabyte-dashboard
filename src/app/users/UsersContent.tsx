@@ -1,12 +1,12 @@
+
+
+
 "use client";
 
 import React, { useState } from "react";
 import { useFetch } from "@/hooks/useFetch";
 import { UserModal } from "./UserModal";
 import { User } from "@/types/user";
-
-
-
 
 export default function UsersContent() {
   const { data: users, loading, error } = useFetch<User[]>(
@@ -18,16 +18,17 @@ export default function UsersContent() {
   if (error) return <p className="p-4 text-red-500">Error: {error}</p>;
 
   return (
-    <div className="p-6 min-h-screen bg-gray-900 text-yellow-400">
-      <h1 className="text-3xl font-bold mb-6">Users</h1>
+    <div className="p-6 w-10/12 mx-auto min-h-screen bg-gray-900 text-yellow-400 ">
+      <h1 className="text-3xl font-bold mb-6 text-center md:text-left">Users</h1>
 
+      {/* ✅ Responsive Table */}
       <div className="overflow-x-auto rounded-lg shadow-lg border border-gray-700">
-        <table className="min-w-full text-left">
+        <table className="min-w-full text-left text-sm md:text-base">
           <thead className="bg-gray-800">
             <tr>
               <th className="p-3">Name</th>
-              <th className="p-3">Email</th>
-              <th className="p-3">Company</th>
+              <th className="p-3 hidden sm:table-cell">Email</th>
+              <th className="p-3 hidden md:table-cell">Company</th>
             </tr>
           </thead>
           <tbody>
@@ -38,15 +39,17 @@ export default function UsersContent() {
                 onClick={() => setSelectedUser(user)}
               >
                 <td className="p-3">{user.name}</td>
-                <td className="p-3">{user.email}</td>
-                <td className="p-3">{user.company.name}</td>
+                <td className="p-3 hidden sm:table-cell">{user.email}</td>
+                <td className="p-3 hidden md:table-cell">
+                  {user.company.name}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      {/* User Modal */}
+      {/* ✅ User Modal */}
       <UserModal user={selectedUser} onClose={() => setSelectedUser(null)} />
     </div>
   );

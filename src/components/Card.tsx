@@ -19,7 +19,7 @@ export const Card: React.FC<CardProps> = ({
   className = "",
 }) => (
   <div
-    className={`p-5 bg-gray-800 text-yellow-400 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col justify-between h-60 ${className}`}
+    className={`p-5 bg-gray-800 text-yellow-400 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col justify-between h-full ${className}`}
   >
     {title && <h2 className="text-xl font-bold mb-2">{title}</h2>}
     {description && <p className="text-gray-200 flex-1">{description}</p>}

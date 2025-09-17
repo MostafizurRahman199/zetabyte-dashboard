@@ -16,8 +16,8 @@ export default function PostsContent() {
   );
 
   return (
-    <div className="p-6 min-h-screen bg-gray-900 text-yellow-400">
-      <div className="max-w-7xl mx-auto">
+    <div className="p-6 min-h-screen bg-gray-900 text-yellow-400 w-full  md:w-10/12 mx-auto">
+      <div className="w-full mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold tracking-wide">Posts</h1>
           <button
@@ -31,7 +31,7 @@ export default function PostsContent() {
         {loading && <p className="text-yellow-300">Loading posts...</p>}
         {error && <p className="text-red-500">Error: {error}</p>}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-auto max-h-[calc(100vh-100px)] pr-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  max-h-[calc(100vh-100px)] pr-2">
           {posts?.map((post) => (
             <motion.div
               key={post.id}
