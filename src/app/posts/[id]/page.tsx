@@ -1,14 +1,15 @@
-// src/app/posts/[id]/page.tsx
 "use client";
 
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Card } from "@/components/Card";
+import PostDetailsCard from "../components/PostDetailsCard";
+
 
 interface Post {
   id: number;
   title: string;
   body: string;
+  userId: number;
 }
 
 export default function SinglePostPage() {
@@ -35,16 +36,17 @@ export default function SinglePostPage() {
     fetchPost();
   }, [id]);
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  if (loading) return <p className="text-center mt-10 text-yellow-300">Loading...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
-    <div className="p-6 max-w-2xl mx-auto">
+    <div className="p-6 min-h-screen bg-gray-900 text-yellow-400 flex justify-center items-start">
       {post && (
-        <Card>
-          <h2 className="text-2xl font-bold mb-4">{post.title}</h2>
-          <p>{post.body}</p>
-        </Card>
+        <PostDetailsCard
+          title={post.title}
+          body={post.body}
+          author={`User #${post.userId}`} // placeholder since JSONPlaceholder doesn’t return username directly
+        />
       )}
     </div>
   );
