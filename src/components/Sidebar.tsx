@@ -98,7 +98,7 @@ export const Sidebar: React.FC = () => {
     <motion.aside
       animate={{ width: open ? 220 : 60 }}
       transition={{ duration: 0.3 }}
-      className="bg-gray-900 text-yellow-400 h-screen flex flex-col p-3 shadow-lg"
+      className="bg-gray-900 text-yellow-400 min-h-screen flex flex-col p-3 shadow-lg"
     >
       {/* Toggle Button */}
       <button
