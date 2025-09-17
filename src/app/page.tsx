@@ -1,6 +1,7 @@
 import { AnimatedCard } from "@/components/AnimatedCard";
 
 
+
 export default function HomePage() {
   return (
     <div className="space-y-6">

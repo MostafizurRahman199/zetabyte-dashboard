@@ -1,27 +1,17 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
+import React from "react";
 
 interface CardProps {
-  id: number;
-  title: string;
-  body: string;
+  title?: string;
+  description?: string;
+  children?: React.ReactNode;
 }
 
-export const Card: React.FC<CardProps> = ({ id, title, body }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="p-4 bg-white rounded shadow hover:shadow-lg transition"
-    >
-      <h2 className="font-bold text-lg">{title}</h2>
-      <p className="text-gray-600 text-sm">{body.slice(0, 80)}...</p>
-      <Link href={`/posts/${id}`} className="text-blue-500 text-sm mt-2 inline-block">
-        Read more
-      </Link>
-    </motion.div>
-  );
-};
+export const Card: React.FC<CardProps> = ({ title, description, children }) => (
+  <div className="p-4 bg-white shadow rounded hover:shadow-md transition-shadow duration-300">
+    {title && <h2 className="text-xl font-semibold mb-2">{title}</h2>}
+    {description && <p>{description}</p>}
+    {children}
+  </div>
+);
