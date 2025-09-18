@@ -22,7 +22,11 @@ export function useFetch<T>(url: string, simulateError = false) {
         return res.json();
       })
       .then((json) => setData(json))
-      .catch((err) => setError(err.message))
+      .catch((err) => {
+        setError(err.message)
+         setData(null);
+
+      })
       .finally(() => setLoading(false));
   }, [url, simulateError]);
 

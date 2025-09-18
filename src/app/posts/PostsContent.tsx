@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -6,6 +5,9 @@ import { useFetch } from "@/hooks/useFetch";
 import Link from "next/link";
 import { Card } from "@/components/Card";
 import { motion } from "framer-motion";
+import LoadingPage from "@/components/LoadingPage";
+import { ErrorMessage } from "@/components/ErrorMessage";
+
 
 export default function PostsContent() {
   const [simulateError, setSimulateError] = useState(false);
@@ -28,8 +30,17 @@ export default function PostsContent() {
           </button>
         </div>
 
-        {loading && <p className="text-yellow-300">Loading posts...</p>}
-        {error && <p className="text-red-500">Error: {error}</p>}
+        {/* {loading && <LoadingPage/>}
+        {error && <p className="text-red-500">Error: {error}</p>} */}
+
+        {loading && <LoadingPage />}
+        {error && (
+          <ErrorMessage
+            message="Failed to load posts. Please check your connection."
+            onRetry={() => setSimulateError(false)}
+          />
+        )}
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  max-h-[calc(100vh-100px)] pr-2">
           {posts?.map((post) => (

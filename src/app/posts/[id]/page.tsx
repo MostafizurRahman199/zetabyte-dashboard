@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import PostDetailsCard from "../components/PostDetailsCard";
+import LoadingPage from "@/components/LoadingPage";
 
 
 interface Post {
@@ -36,7 +37,7 @@ export default function SinglePostPage() {
     fetchPost();
   }, [id]);
 
-  if (loading) return <p className="text-center mt-10 text-yellow-300">Loading...</p>;
+  if (loading) return <LoadingPage/>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
