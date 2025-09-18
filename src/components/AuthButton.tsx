@@ -43,7 +43,7 @@ export const AuthButton = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="absolute right-0 mt-6 w-40 bg-gray-800 text-yellow-400 rounded-lg shadow-lg overflow-hidden z-50"
+              className="absolute right-0 mt-6 w-40 bg-gray-800 text-yellow-400 rounded-lg shadow-lg overflow-hidden z-200"
             >
               <Link
                 href="/profile"

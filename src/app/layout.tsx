@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Sidebar } from "@/components/Sidebar";
 import { ClientProvider } from "@/components/ClientProvider";
+import { Footer } from "@/components/Footer";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,6 +21,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Navbar />
 
             <main className="flex-1 ">{children}</main>
+
+          <Footer/>
           </div>
         </ClientProvider>
       </body>
