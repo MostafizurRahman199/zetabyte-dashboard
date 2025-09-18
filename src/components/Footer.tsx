@@ -157,7 +157,7 @@ export const Footer: React.FC = () => {
         {/* Bottom section */}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }} className="border-t border-yellow-400/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2 text-yellow-200/60 text-sm">
-            <span>© {currentYear} CodeCraft. All rights reserved.</span>
+            <span>© {currentYear} Zettabyte. All rights reserved.</span>
             <Heart className="w-4 h-4 text-red-400 fill-current animate-pulse" />
           </div>
           <div className="flex gap-6 text-sm text-yellow-200/60">
