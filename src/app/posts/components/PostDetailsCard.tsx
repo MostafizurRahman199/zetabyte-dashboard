@@ -1,11 +1,11 @@
 
-
 // src/components/PostDetailsCard.tsx
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { PostActionButton } from "./PostActionButton";
 
 interface PostDetailsCardProps {
   title: string;
@@ -35,7 +35,7 @@ const PostDetailsCard: React.FC<PostDetailsCardProps> = ({ title, body, author }
       {/* Title */}
       <h1 className="text-3xl font-bold mb-4 leading-snug break-words">{title}</h1>
 
-      {/* Author (if provided) */}
+      {/* Author  */}
       {author && (
         <p className="mb-4 text-yellow-300 font-medium italic">✍️ {author}</p>
       )}
@@ -45,31 +45,25 @@ const PostDetailsCard: React.FC<PostDetailsCardProps> = ({ title, body, author }
 
       {/* Actions */}
       <div className="mt-6 flex flex-col sm:flex-row justify-between gap-3">
-        <button
-          type="button"
-          onClick={handleBack}
-          className="w-full sm:w-auto px-5 py-2 bg-yellow-400 text-gray-900 rounded-lg font-semibold shadow hover:bg-yellow-500 transition transform active:scale-95"
-          aria-label="Go back to posts"
-        >
-          ← Back to Posts
-        </button>
+      <PostActionButton
+        label="← Back to Posts"
+        onClick={handleBack}
+        variant="primary"
+        fullWidth
+      />
 
-     
-        <button
-          type="button"
-          onClick={() => {
-           
-            if (typeof window !== "undefined") {
-              navigator.clipboard?.writeText(window.location.href);
-            
-            }
-          }}
-          className="w-full sm:w-auto px-5 py-2 border border-yellow-400 text-yellow-300 rounded-lg font-medium shadow hover:bg-yellow-700 transition"
-          aria-label="Copy post link"
-        >
-          Copy Link
-        </button>
-      </div>
+      <PostActionButton
+        label="Copy Link"
+        onClick={() => {
+          if (typeof window !== "undefined") {
+            navigator.clipboard?.writeText(window.location.href);
+          }
+        }}
+        variant="secondary"
+        fullWidth
+      />
+    </div>
+
     </motion.div>
   );
 };

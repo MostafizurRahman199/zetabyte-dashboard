@@ -30,16 +30,23 @@ export default function PostsContent() {
           </button>
         </div>
 
-        {/* {loading && <LoadingPage/>}
-        {error && <p className="text-red-500">Error: {error}</p>} */}
+     
 
         {loading && <LoadingPage />}
         {error && (
-          <ErrorMessage
-            message="Failed to load posts. Please check your connection."
-            onRetry={() => setSimulateError(false)}
-          />
+          <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <ErrorMessage
+                    message="Failed to load posts. Please check your connection."
+                    onRetry={() => setSimulateError(false)}
+                  />
+                </motion.div>
         )}
+         
 
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  max-h-[calc(100vh-100px)] pr-2">
